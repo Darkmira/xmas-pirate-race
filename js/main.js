@@ -37,11 +37,9 @@ function initPath() {
 }
 
 function initBoats() {
-    var boat = new Boat(Poseidon.seaPath);
-    
-    Poseidon.$waves.append(boat.getBoatItem());
-    
-    Poseidon.boats.push(boat);
+    for (var i = 0; i < 3; i++) {
+        Poseidon.addBoat('img/pirate-boat-'+[1, 2, 4][i]+'.png');
+    }
 }
 
 function start() {
