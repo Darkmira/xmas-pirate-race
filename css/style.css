@@ -1,0 +1,14 @@
+#sea {
+    background: url("http://thumbs.dreamstime.com/z/vieille-carte-de-tr%C3%A9sor-3292102.jpg") no-repeat scroll center 0 rgba(0, 0, 0, 0);
+    margin: auto;
+    position: relative;
+    width: 1000px;
+    height: 1400px;
+}
+
+#waves {
+    position: relative;
+}
+.boat {
+    position: absolute;
+}
