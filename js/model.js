@@ -238,6 +238,13 @@ function Boat(path, imgSrc)
      * @type Point
      */
     var position;
+    
+    /**
+     * Current coef
+     * 
+     * @type double
+     */
+    var _coef;
 
     /**
      * @type {jQuery}
@@ -256,6 +263,7 @@ function Boat(path, imgSrc)
         }
 
         $boat = $('<img class="boat">');
+        _coef = 0.0;
 
         var image = new Image();
 
@@ -267,7 +275,7 @@ function Boat(path, imgSrc)
 
             $boat.attr('src', imgSrc);
 
-            _this.move(0.0);
+            _this.move(_coef);
         };
 
         image.src = imgSrc;
@@ -284,6 +292,8 @@ function Boat(path, imgSrc)
             left: position.x + 'px',
             top: position.y + 'px'
         });
+        
+        _coef = coef;
     };
 
     this.navigate = function (coef)
@@ -293,10 +303,12 @@ function Boat(path, imgSrc)
             dimensions.height / 2
         ));
 
-        _this.animate({
+        $boat.animate({
             left: position.x + 'px',
             top: position.y + 'px'
-        });
+        }, Math.abs(_coef - coef) * 100000, 'easeInOutSine');
+        
+        _coef = coef;
     };
 
     /**
@@ -325,42 +337,84 @@ var Poseidon =
     
     boats: [],
     
-    waveCycle: 0,
+    waveCycle: -1,
+    
+    wavePower: 0,
     
     /**
      * @type {jQuery}
      */
     $waves: undefined,
     
+    /**
+     * Create waves which make boats moving themselves,
+     * or just change waves power.
+     * 
+     * @param {integer} power (4 is low, 20 is high)
+     */
     createWaves: function (power)
     {
+        Poseidon.wavePower = power;
+        
+        if (Poseidon.waveCycle >= 0) {
+            return;
+        }
+        
         Poseidon.waveCycle = 0;
 
         var callbackWave = function ()
         {
+            if (Poseidon.waveCycle < 0) {
+                Poseidon.$waves.animate({
+                    left: '0px',
+                    top: '0px'
+                }, 1800, 'easeInOutSine');
+                
+                return;
+            }
+            
             Poseidon.waveCycle++;
             Poseidon.waveCycle %= 4;
             
             var point;
             
             switch (Poseidon.waveCycle) {
-                case 0: point = new Point(power * 0, power * 0); break;
-                case 1: point = new Point(power * 3, power * 1); break;
-                case 2: point = new Point(power * 3, power * 0); break;
-                case 3: point = new Point(power * 0, power * 1); break;
+                case 0: point = new Point(Poseidon.wavePower * 0, Poseidon.wavePower * 0); break;
+                case 1: point = new Point(Poseidon.wavePower * 3, Poseidon.wavePower * 1); break;
+                case 2: point = new Point(Poseidon.wavePower * 3, Poseidon.wavePower * 0); break;
+                case 3: point = new Point(Poseidon.wavePower * 0, Poseidon.wavePower * 1); break;
             }
 
             Poseidon.$waves.animate({
                 left: point.x + 'px',
                 top: point.y + 'px'
-            }, 1200, 'easeInOutSine', callbackWave);
+            }, 1800, 'easeInOutSine', callbackWave);
         };
         
         callbackWave();
     },
     
+    /**
+     * Stop waves
+     */
+    stopWaves: function ()
+    {
+        Poseidon.waveCycle = -1;
+    },
+    
+    /**
+     * Makes Poseidon blow on a boat sail
+     * to make it move forward along its adventurous path.
+     * 
+     * @param {Boat|integer} boat
+     * @param {double} toCoef
+     */
     blowBoat: function (boat, toCoef)
     {
+        if (!(boat instanceof Boat)) {
+            boat = Poseidon.boats[boat];
+        }
         
+        boat.navigate(toCoef);
     }
 };

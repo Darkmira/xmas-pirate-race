@@ -41,5 +41,5 @@ function initBoats() {
 
 function start() {
     Poseidon.$waves = $('#waves');
-    Poseidon.createWaves(8);
+    Poseidon.createWaves(4);
 }
