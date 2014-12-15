@@ -1,8 +1,13 @@
 $(function () {
+    init();
     initPath();
     initBoats();
     start();
 });
+
+function init() {
+    Poseidon.$waves = $('#waves');
+}
 
 function initPath() {
     Poseidon.seaPath = new Path([
@@ -34,12 +39,11 @@ function initPath() {
 function initBoats() {
     var boat = new Boat(Poseidon.seaPath);
     
-    $('#waves').append(boat.getBoatItem());
+    Poseidon.$waves.append(boat.getBoatItem());
     
     Poseidon.boats.push(boat);
 }
 
 function start() {
-    Poseidon.$waves = $('#waves');
     Poseidon.createWaves(4);
 }

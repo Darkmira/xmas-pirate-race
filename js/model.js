@@ -251,6 +251,9 @@ function Boat(path, imgSrc)
      */
     var $boat;
 
+    /**
+     * Init Boat instance
+     */
     var construct = function ()
     {
         if (!path) {
@@ -281,6 +284,11 @@ function Boat(path, imgSrc)
         image.src = imgSrc;
     };
 
+    /**
+     * Move the hardly way this boat to a point (between 0 and 1) on the path
+     * 
+     * @param {double} coef
+     */
     this.move = function (coef)
     {
         position = path.getPosition(coef).sub(new Point(
@@ -296,6 +304,11 @@ function Boat(path, imgSrc)
         _coef = coef;
     };
 
+    /**
+     * Navigate this boat to a point (between 0 and 1) on the path
+     * 
+     * @param {double} coef
+     */
     this.navigate = function (coef)
     {
         position = path.getPosition(coef).sub(new Point(
@@ -331,6 +344,13 @@ function Boat(path, imgSrc)
     construct();
 }
 
+/**
+ * Knows all of the sea and waves.
+ * 
+ * Can animate waves, blow on the boats sails...
+ * 
+ * @type Poseidon
+ */
 var Poseidon =
 {
     seaPath: undefined,
