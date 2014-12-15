@@ -5,8 +5,8 @@
  */
 var Config =
 {
-    boatAnimationLap: 4000,
-    wavesLap: 1800
+    boatAnimationLap: 10000,
+    wavesLap: 2400
 };
 
 
@@ -522,10 +522,10 @@ var Poseidon =
             var point;
             
             switch (Poseidon.waveCycle) {
-                case 0: point = new Point(Poseidon.wavePower * 0, Poseidon.wavePower * 0); break;
-                case 1: point = new Point(Poseidon.wavePower * 3, Poseidon.wavePower * 1); break;
-                case 2: point = new Point(Poseidon.wavePower * 3, Poseidon.wavePower * 0); break;
-                case 3: point = new Point(Poseidon.wavePower * 0, Poseidon.wavePower * 1); break;
+                case 0: point = new Point(Poseidon.wavePower * -1.5, Poseidon.wavePower * -0.5); break;
+                case 1: point = new Point(Poseidon.wavePower *  1.5, Poseidon.wavePower *  0.5); break;
+                case 2: point = new Point(Poseidon.wavePower *  1.5, Poseidon.wavePower * -0.5); break;
+                case 3: point = new Point(Poseidon.wavePower * -1.5, Poseidon.wavePower *  0.5); break;
             }
 
             Poseidon.$waves.animate({
