@@ -5,15 +5,17 @@
 
 body {
     font-family: pirate;
+    background: url(http://www.sheepscotgeneral.com/wp-content/uploads/2013/10/Light-Wood-Background-Wallpaper.jpg);
 }
 
 #sea {
-    background: url("http://thumbs.dreamstime.com/z/vieille-carte-de-tr%C3%A9sor-3292102.jpg") no-repeat scroll center 0 rgba(0, 0, 0, 0);
+    background: url("../img/map-pirate-race-3-transparent-white.png") no-repeat scroll center 0 rgba(0, 0, 0, 0.0);
+    background-size: 75%;
+    width: 2500px;
+    height: 1500px;
     margin: auto;
     position: relative;
-    right: 128px;
-    width: 1000px;
-    height: 1400px;
+    right: 256px;
 }
 
 #waves {
@@ -34,6 +36,14 @@ body {
 .color-2, .boat:nth-child(3) {
     color: red;
     -webkit-filter: hue-rotate(200deg) saturate(0.75);
+}
+.color-3, .boat:nth-child(4) {
+    color: red;
+    -webkit-filter: hue-rotate(240deg) saturate(0.75);
+}
+.color-4, .boat:nth-child(5) {
+    color: red;
+    -webkit-filter: hue-rotate(290deg) saturate(0.75);
 }
 
 #ui {

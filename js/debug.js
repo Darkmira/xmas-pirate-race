@@ -30,8 +30,8 @@ function displayMainPath() {
  * Use it to trace a path with mouse.
  */
 function logClicks() {
-    $('#container').click(function (e) {
-        var origin = $('#container').position();
+    $('#sea').click(function (e) {
+        var origin = $('#sea').position();
         var p = new Point(e.pageX - origin.left, e.pageY - origin.top);
         console.log('new Point('+p.x+', '+p.y+'),');
     });

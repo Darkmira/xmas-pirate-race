@@ -6,7 +6,8 @@
 var Config =
 {
     boatAnimationLap: 3000,
-    wavesLap: 2400
+    wavesLap: 2400,
+    boatsNumber: 3
 };
 
 
@@ -677,9 +678,10 @@ var Persister =
     {
         if (!hasCookie('pirate')) {
             console.warn('no data');
+            return;
         }
         
-        var teamsCount = parseInt(getCookie('pirate_teams_count'));
+        var teamsCount = Config.boatsNumber;
             
         for (var i = 0; i < teamsCount; i++) {
             $('#team-'+i+' input').val(getCookie('pirate_team_'+i+'_name'));
@@ -692,9 +694,7 @@ var Persister =
         console.log('save');
         
         setCookie('pirate', true);
-        var teamsCount = 3;
-        
-        setCookie('pirate_teams_count', teamsCount);
+        var teamsCount = Config.boatsNumber;
 
         for (var i = 0; i < teamsCount; i++) {
             setCookie('pirate_team_'+i+'_name', $('#team-'+i+' input').val());
