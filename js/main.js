@@ -12,7 +12,7 @@ function init() {
 
 function initPath() {
     Poseidon.seaPath = new Path([
-        new Point(536, 380),
+        new Point(140, 200),
         new Point(508, 474),
         new Point(549, 540),
         new Point(671, 605),

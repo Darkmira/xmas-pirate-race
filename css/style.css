@@ -5,22 +5,19 @@
 
 body {
     font-family: pirate;
-    background: url(http://www.sheepscotgeneral.com/wp-content/uploads/2013/10/Light-Wood-Background-Wallpaper.jpg);
+    background: url("../img/background-wood.jpg");
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #sea {
-    background: url("../img/map-pirate-race-3-transparent-white.png") no-repeat scroll center 0 rgba(0, 0, 0, 0.0);
-    background-size: 75%;
-    width: 2500px;
-    height: 1500px;
+    width: 1300px;
     margin: auto;
-    position: relative;
-    right: 256px;
 }
 
-#waves {
-    position: relative;
-}
 .boat {
     position: absolute;
 }
@@ -47,15 +44,16 @@ body {
 }
 
 #ui {
-    width: 256px;
-    height: 100%;
-    position: fixed;
-    right: 0;
-    top: 0;
+    height: auto;
     background-image: url(../img/bg-boat.jpg), url(../img/bg.jpg);
     background-repeat: no-repeat, repeat;
     background-position: right bottom, 0 0;
 }
+
+#ui h2 {
+    padding-top: 15px;
+}
+
 #ui .team {
     margin-top: 24px;
     padding-bottom: 18px;
@@ -75,4 +73,19 @@ body {
 }
 #ui .team .more {
     width: 100px;
+}
+
+@media (min-width: 992px) and (max-width: 1560px) {
+    .col-md-2 {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1560px) {
+    #ui {
+        height: 980px;
+        position: fixed;
+        right: 0;
+        width: 300px;
+    }
 }
