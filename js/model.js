@@ -5,9 +5,9 @@
  */
 var Config =
 {
-    boatAnimationLap: 3000,
+    boatAnimationLap: 300,
     wavesLap: 2400,
-    boatsNumber: 3
+    boatsNumber: 2
 };
 
 
@@ -646,7 +646,7 @@ var Poseidon =
 
 var Score =
 {
-    max: 30,
+    max: 50,
     
     update: function (boat, scoreUpdate)
     {
