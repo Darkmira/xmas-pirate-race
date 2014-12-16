@@ -11,6 +11,7 @@ body {
     background: url("http://thumbs.dreamstime.com/z/vieille-carte-de-tr%C3%A9sor-3292102.jpg") no-repeat scroll center 0 rgba(0, 0, 0, 0);
     margin: auto;
     position: relative;
+    right: 128px;
     width: 1000px;
     height: 1400px;
 }
@@ -20,6 +21,19 @@ body {
 }
 .boat {
     position: absolute;
+}
+
+.color-0, .boat:nth-child(1) {
+    color: red;
+    -webkit-filter: hue-rotate(150deg) saturate(0.75);
+}
+.color-1, .boat:nth-child(2) {
+    color: red;
+    -webkit-filter: hue-rotate(40deg) saturate(0.75);
+}
+.color-2, .boat:nth-child(3) {
+    color: red;
+    -webkit-filter: hue-rotate(200deg) saturate(0.75);
 }
 
 #ui {
@@ -33,21 +47,21 @@ body {
     background-position: right bottom, 0 0;
 }
 #ui .team {
-    margin-top: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin-top: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.15);
 }
 #ui input {
     border: none;
     background: none;
     font-size: 26px;
     padding: 4px 8px;
-    color: #222;
     box-shadow: none;
     text-align: center;
 }
 #ui .team .score {
-    font-size: 64px;
+    font-size: 48px;
+    margin: 0;
 }
 #ui .team .more {
     width: 100px;
