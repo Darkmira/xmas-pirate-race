@@ -624,7 +624,7 @@ var Poseidon =
         }
         
         var distToOrigin = Math.floor((n + 1) / 2);
-        var side = (n % 2) ? 1 : -1;
+        var side = (n % 2) ? -1 : 1;
         
         return distToOrigin * side;
     },
