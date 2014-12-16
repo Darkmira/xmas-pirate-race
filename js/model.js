@@ -5,7 +5,7 @@
  */
 var Config =
 {
-    boatAnimationLap: 300,
+    boatAnimationLap: 3000,
     wavesLap: 2400,
     boatsNumber: 2
 };
