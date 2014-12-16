@@ -18,6 +18,10 @@ body {
     margin: auto;
 }
 
+#waves {
+    position: absolute;
+}
+
 .boat {
     position: absolute;
 }
