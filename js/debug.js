@@ -22,7 +22,7 @@ function displayMainPath() {
             top: pos.y+'px'
         });
         
-        $('#container').append($p);
+        $('#sea').append($p);
     }
 }
 
