@@ -62,4 +62,9 @@ function initUI() {
 
 function start() {
     Poseidon.createWaves(4);
+    
+    setTimeout(function () {
+        Persister.load();
+        Persister.autoSave();
+    }, 1000);
 }

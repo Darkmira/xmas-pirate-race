@@ -5,7 +5,7 @@
  */
 var Config =
 {
-    boatAnimationLap: 50000,
+    boatAnimationLap: 3000,
     wavesLap: 2400
 };
 
@@ -395,7 +395,7 @@ function Boat(path, imgSrc)
         $boat.animate({
             left: position.x + 'px',
             top: position.y + 'px'
-        }, Math.abs(_coef - coef) * Config.boatAnimationLap, 'easeInOutSine');
+        }, Config.boatAnimationLap, 'easeInOutSine');
         
         _coef = coef;
     };
@@ -655,5 +655,95 @@ var Score =
         
         $team.find('.score').html(newScore);
         Poseidon.blowBoat(boat, newScore / Score.max);
+    },
+    
+    get: function (boat)
+    {
+        var $score = $('#ui .team[data-boat="'+boat+'"] .score');
+        
+        return parseInt($score.html());
+    },
+    
+    set: function (boat, score)
+    {
+        $('#ui .team[data-boat="'+boat+'"] .score').html(score);
+        Poseidon.blowBoat(boat, score / Score.max);
     }
 };
+
+var Persister =
+{
+    load: function ()
+    {
+        if (!hasCookie('pirate')) {
+            console.warn('no data');
+        }
+        
+        var teamsCount = parseInt(getCookie('pirate_teams_count'));
+            
+        for (var i = 0; i < teamsCount; i++) {
+            $('#team-'+i+' input').val(getCookie('pirate_team_'+i+'_name'));
+            Score.set(i, parseInt(getCookie('pirate_team_'+i+'_score')));
+        }
+    },
+    
+    save: function ()
+    {
+        console.log('save');
+        
+        setCookie('pirate', true);
+        var teamsCount = 3;
+        
+        setCookie('pirate_teams_count', teamsCount);
+
+        for (var i = 0; i < teamsCount; i++) {
+            setCookie('pirate_team_'+i+'_name', $('#team-'+i+' input').val());
+            setCookie('pirate_team_'+i+'_score', Score.get(i));
+        }
+    },
+    
+    autoSave: function ()
+    {
+        $('.more, .less').click(function () {
+            Persister.save();
+        });
+        $('.team input').change(function () {
+            Persister.save();
+        });
+        Persister.save();
+    },
+    
+    deleteData: function ()
+    {
+        setCookie('pirate');
+    }
+};
+
+function setCookie(cname, cvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + ((undefined === cvalue) ? -3600 : (365*24*60*60*1000)));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function hasCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return true;
+    }
+    return false;
+}
