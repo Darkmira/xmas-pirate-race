@@ -1,3 +1,12 @@
+@font-face {
+    font-family: pirate;
+    src: url(../fonts/black-sams-gold.ttf);
+}
+
+body {
+    font-family: pirate;
+}
+
 #sea {
     background: url("http://thumbs.dreamstime.com/z/vieille-carte-de-tr%C3%A9sor-3292102.jpg") no-repeat scroll center 0 rgba(0, 0, 0, 0);
     margin: auto;
@@ -11,4 +20,35 @@
 }
 .boat {
     position: absolute;
+}
+
+#ui {
+    width: 256px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-image: url(../img/bg-boat.jpg), url(../img/bg.jpg);
+    background-repeat: no-repeat, repeat;
+    background-position: right bottom, 0 0;
+}
+#ui .team {
+    margin-top: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+#ui input {
+    border: none;
+    background: none;
+    font-size: 26px;
+    padding: 4px 8px;
+    color: #222;
+    box-shadow: none;
+    text-align: center;
+}
+#ui .team .score {
+    font-size: 64px;
+}
+#ui .team .more {
+    width: 100px;
 }

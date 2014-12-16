@@ -5,7 +5,7 @@
  */
 var Config =
 {
-    boatAnimationLap: 10000,
+    boatAnimationLap: 50000,
     wavesLap: 2400
 };
 
@@ -487,7 +487,7 @@ var Poseidon =
      * 
      * @type integer
      */
-    distanceBetweenBoats: 72,
+    distanceBetweenBoats: 62,
     
     /**
      * Create waves which make boats moving themselves,
@@ -522,10 +522,10 @@ var Poseidon =
             var point;
             
             switch (Poseidon.waveCycle) {
-                case 0: point = new Point(Poseidon.wavePower * -1.5, Poseidon.wavePower * -0.5); break;
-                case 1: point = new Point(Poseidon.wavePower *  1.5, Poseidon.wavePower *  0.5); break;
-                case 2: point = new Point(Poseidon.wavePower *  1.5, Poseidon.wavePower * -0.5); break;
-                case 3: point = new Point(Poseidon.wavePower * -1.5, Poseidon.wavePower *  0.5); break;
+                case 0: point = new Point(Poseidon.wavePower * -0.5, Poseidon.wavePower * -0.5); break;
+                case 1: point = new Point(Poseidon.wavePower *  0.5, Poseidon.wavePower *  0.5); break;
+                case 2: point = new Point(Poseidon.wavePower *  0.5, Poseidon.wavePower * -0.5); break;
+                case 3: point = new Point(Poseidon.wavePower * -0.5, Poseidon.wavePower *  0.5); break;
             }
 
             Poseidon.$waves.animate({
@@ -640,5 +640,20 @@ var Poseidon =
         boat = Poseidon.boats[i];
         Poseidon.updateBoatTranslation(i, toCoef);
         boat.navigate(toCoef);
+    }
+};
+
+var Score =
+{
+    max: 30,
+    
+    update: function (boat, scoreUpdate)
+    {
+        var $team = $('#ui .team[data-boat="'+boat+'"]');
+        var $score = $team.find('.score');
+        var newScore = parseInt($score.html()) + scoreUpdate;
+        
+        $team.find('.score').html(newScore);
+        Poseidon.blowBoat(boat, newScore / Score.max);
     }
 };
