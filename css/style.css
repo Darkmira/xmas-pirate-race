@@ -1,0 +1,95 @@
+@font-face {
+    font-family: pirate;
+    src: url(../fonts/black-sams-gold.ttf);
+}
+
+body {
+    font-family: pirate;
+    background: url("../img/background-wood.jpg");
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#sea {
+    width: 1300px;
+    margin: auto;
+}
+
+#waves {
+    position: absolute;
+}
+
+.boat {
+    position: absolute;
+}
+
+.color-0, .boat:nth-child(1) {
+    color: red;
+    -webkit-filter: hue-rotate(150deg) saturate(0.75);
+}
+.color-1, .boat:nth-child(2) {
+    color: red;
+    -webkit-filter: hue-rotate(40deg) saturate(0.75);
+}
+.color-2, .boat:nth-child(3) {
+    color: red;
+    -webkit-filter: hue-rotate(200deg) saturate(0.75);
+}
+.color-3, .boat:nth-child(4) {
+    color: red;
+    -webkit-filter: hue-rotate(240deg) saturate(0.75);
+}
+.color-4, .boat:nth-child(5) {
+    color: red;
+    -webkit-filter: hue-rotate(290deg) saturate(0.75);
+}
+
+#ui {
+    height: auto;
+    background-image: url(../img/bg-boat.jpg), url(../img/bg.jpg);
+    background-repeat: no-repeat, repeat;
+    background-position: right bottom, 0 0;
+}
+
+#ui h2 {
+    padding-top: 15px;
+}
+
+#ui .team {
+    margin-top: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.15);
+}
+#ui input {
+    border: none;
+    background: none;
+    font-size: 26px;
+    padding: 4px 8px;
+    box-shadow: none;
+    text-align: center;
+}
+#ui .team .score {
+    font-size: 48px;
+    margin: 0;
+}
+#ui .team .more {
+    width: 100px;
+}
+
+@media (min-width: 992px) and (max-width: 1560px) {
+    .col-md-2 {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1561px) {
+    #ui {
+        height: 980px;
+        position: fixed;
+        right: 0;
+        width: 300px;
+    }
+}

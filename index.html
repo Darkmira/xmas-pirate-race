@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bateaux pirates</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="sea" class="col-md-10">
+                    <div id="map"><img src="img/map-pirate-race.png" class="img-responsive" /></div>
+                    <div id="waves">
+                        <!--
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        -->
+                    </div>
+                </div>
+                
+                <div id="ui" class="col-md-2">
+                    <div class="text-center">
+                        <h2>Planche à points</h2>
+                        <div id="team-0" class="team" data-boat="0">
+                            <input value="Equipe 1" class="form-control input-lg color-0" />
+                            <p class="score color-0">0</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success more">+</button>
+                                <button type="button" class="btn btn-danger less">-</button>
+                            </div>
+                        </div>
+                        <div id="team-1" class="team" data-boat="1">
+                            <input value="Equipe 2" class="form-control input-lg color-1" />
+                            <p class="score color-1">0</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success more">+</button>
+                                <button type="button" class="btn btn-danger less">-</button>
+                            </div>
+                        </div>
+                        <div id="team-2" class="team" data-boat="2">
+                            <input value="Equipe 3" class="form-control input-lg color-2" />
+                            <p class="score color-2">0</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success more">+</button>
+                                <button type="button" class="btn btn-danger less">-</button>
+                            </div>
+                        </div>
+                        <!--
+                        <div id="team-4" class="team col-md-12" data-boat="3">
+                            <input value="Equipe 4" class="form-control input-lg color-3" />
+                            <p class="score color-3">0</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success more">+</button>
+                                <button type="button" class="btn btn-danger less">-</button>
+                            </div>
+                        </div>
+                        <div id="team-5" class="team col-md-12" data-boat="4">
+                            <input value="Equipe 5" class="form-control input-lg color-4" />
+                            <p class="score color-4">0</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success more">+</button>
+                                <button type="button" class="btn btn-danger less">-</button>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
