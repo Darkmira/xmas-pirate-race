@@ -15,7 +15,7 @@ Developed by [Darkmira](http://www.darkmira.fr/).
 - A saber and brave crews to board your ship
 
 
-## Utilization
+## Using
 
 Simply open index.html in your browser, and start to count points to each team
 by clicking + or - in the menu.
